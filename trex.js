@@ -214,14 +214,17 @@ Trex.prototype = {
         }
 
         this.canvasCtx.beginPath();
-        this.canvasCtx.lineWidth = 0.5;        
+        this.canvasCtx.lineWidth = 0.2;        
 
-        for (i=-2;i<10;i++) {
-            this.canvasCtx.moveTo(Runner.defaultDimensions.WIDTH/2,0);
-            this.canvasCtx.lineTo(this.xPos+i*10, this.yPos);
+        for (i=-4;i<20;i++) {
+            // this.canvasCtx.moveTo(Runner.defaultDimensions.WIDTH/2,0);
+            this.canvasCtx.moveTo(getRandomNum(0,Runner.defaultDimensions.WIDTH),0);
+            
+            // this.canvasCtx.lineTo(this.xPos+i*10, this.yPos);
+            this.canvasCtx.lineTo(getRandomNum(this.xPos-20, this.xPos+100), this.yPos);
 
-            this.canvasCtx.moveTo(this.xPos + sourceWidth/2,this.yPos+sourceHeight-8);
-            this.canvasCtx.lineTo(this.xPos+i*10, this.yPos);
+            this.canvasCtx.lineTo(this.xPos + sourceWidth/2 + i*1,this.yPos+sourceHeight);
+            // this.canvasCtx.lineTo(this.xPos+i*10, this.yPos);
         }
 
         this.canvasCtx.stroke();

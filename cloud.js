@@ -59,16 +59,17 @@ Cloud.prototype = {
             sourceHeight = sourceHeight * 2;
         }
 
-        this.canvasCtx.drawImage(Runner.imageSprite, this.spritePos.x,
-            this.spritePos.y,
-            sourceWidth, sourceHeight,
-            this.xPos, this.yPos,
-            Cloud.config.WIDTH, Cloud.config.HEIGHT);
+        // this.canvasCtx.drawImage(Runner.imageSprite, this.spritePos.x,
+        //     this.spritePos.y,
+        //     sourceWidth, sourceHeight,
+        //     this.xPos, this.yPos,
+        //     Cloud.config.WIDTH, Cloud.config.HEIGHT);
         
-        // this.canvasCtx.moveTo(this.xPos, this.yPos);
-        // this.canvasCtx.beginPath();
-        // this.canvasCtx.arc(this.xPos, this.yPos, 20, 0, 2*Math.PI);
-        // this.canvasCtx.stroke();
+        
+        this.canvasCtx.beginPath();
+        this.canvasCtx.lineWidth =0.2;
+        this.canvasCtx.arc(this.xPos + getRandomNum(-5,5), this.yPos + getRandomNum(-5,5), 20, 0, 2*Math.PI);
+        this.canvasCtx.stroke();
 
         this.canvasCtx.restore();
     },
