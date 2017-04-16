@@ -213,38 +213,46 @@ Trex.prototype = {
             sourceHeight *= 2;
         }
 
-        for (i=-5;i<10;i++) {
-            this.canvasCtx.moveTo(Runner.defaultDimensions.WIDTH/2,0);
-            this.canvasCtx.lineTo(this.xPos+i*10, this.yPos);    
-        }                
-        this.canvasCtx.lineWidth = 0.5;
-        this.canvasCtx.stroke();
-
         this.canvasCtx.beginPath();
-        this.canvasCtx.arc(this.xPos, this.yPos, 0, 0, 2*Math.PI);
+        this.canvasCtx.lineWidth = 0.5;        
+
+        for (i=-2;i<10;i++) {
+            this.canvasCtx.moveTo(Runner.defaultDimensions.WIDTH/2,0);
+            this.canvasCtx.lineTo(this.xPos+i*10, this.yPos);
+
+            this.canvasCtx.moveTo(this.xPos + sourceWidth/2,this.yPos+sourceHeight-8);
+            this.canvasCtx.lineTo(this.xPos+i*10, this.yPos);
+        }
+
+        this.canvasCtx.stroke();
+        
+        
+
+        
+        // this.canvasCtx.arc(this.xPos, this.yPos, 0, 0, 2*Math.PI);
         // this.canvasCtx.stroke();
 
         // Adjustments for sprite sheet position.
         sourceX += this.spritePos.x;
         sourceY += this.spritePos.y;
 
-        // Ducking.
-        if (this.ducking && this.status != Trex.status.CRASHED) {
-            this.canvasCtx.drawImage(Runner.imageSprite, sourceX, sourceY,
-                sourceWidth, sourceHeight,
-                this.xPos, this.yPos,
-                this.config.WIDTH_DUCK, this.config.HEIGHT);
-        } else {
-            // Crashed whilst ducking. Trex is standing up so needs adjustment.
-            if (this.ducking && this.status == Trex.status.CRASHED) {
-                this.xPos++;
-            }
-            // Standing / running
-            this.canvasCtx.drawImage(Runner.imageSprite, sourceX, sourceY,
-                sourceWidth, sourceHeight,
-                this.xPos, this.yPos,
-                this.config.WIDTH, this.config.HEIGHT);
-        }
+        // // Ducking.
+        // if (this.ducking && this.status != Trex.status.CRASHED) {
+        //     this.canvasCtx.drawImage(Runner.imageSprite, sourceX, sourceY,
+        //         sourceWidth, sourceHeight,
+        //         this.xPos, this.yPos,
+        //         this.config.WIDTH_DUCK, this.config.HEIGHT);
+        // } else {
+        //     // Crashed whilst ducking. Trex is standing up so needs adjustment.
+        //     if (this.ducking && this.status == Trex.status.CRASHED) {
+        //         this.xPos++;
+        //     }
+        //     // Standing / running
+        //     this.canvasCtx.drawImage(Runner.imageSprite, sourceX, sourceY,
+        //         sourceWidth, sourceHeight,
+        //         this.xPos, this.yPos,
+        //         this.config.WIDTH, this.config.HEIGHT);
+        // }
 
 
 
