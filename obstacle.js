@@ -117,21 +117,11 @@ Obstacle.MAX_OBSTACLE_LENGTH = 3,
                 sourceX += sourceWidth * this.currentFrame;
             }
 
-            // this.canvasCtx.drawImage(Runner.imageSprite,
-            //     sourceX, this.spritePos.y,
-            //     sourceWidth * this.size, sourceHeight,
-            //     this.xPos, this.yPos,
-            //     this.typeConfig.width * this.size, this.typeConfig.height);
-
-                for (i=-5;i<10;i++) {
-                    this.canvasCtx.moveTo(this.xPos + this.typeConfig.width * this.size/2,this.yPos);
-                    this.canvasCtx.lineTo(this.xPos+i*10, this.yPos+this.typeConfig.height-7);    
-                }                
-                this.canvasCtx.lineWidth = 0.5;
-                this.canvasCtx.stroke();
-
-                // this.canvasCtx.beginPath();
-                // this.canvasCtx.arc(this.xPos, this.yPos, 0, 0, 2*Math.PI);
+            this.canvasCtx.drawImage(Runner.imageSprite,
+                sourceX, this.spritePos.y,
+                sourceWidth * this.size, sourceHeight,
+                this.xPos, this.yPos,
+                this.typeConfig.width * this.size, this.typeConfig.height);
         },
 
         /**

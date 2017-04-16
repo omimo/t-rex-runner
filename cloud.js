@@ -64,11 +64,6 @@ Cloud.prototype = {
             sourceWidth, sourceHeight,
             this.xPos, this.yPos,
             Cloud.config.WIDTH, Cloud.config.HEIGHT);
-        
-        // this.canvasCtx.moveTo(this.xPos, this.yPos);
-        // this.canvasCtx.beginPath();
-        // this.canvasCtx.arc(this.xPos, this.yPos, 20, 0, 2*Math.PI);
-        // this.canvasCtx.stroke();
 
         this.canvasCtx.restore();
     },
